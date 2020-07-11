@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum Flavor { DEV, QAT }
+enum Flavor { DEV, QAT, UAT, PROD }
 
 class FlavorConfig {
   static FlavorConfig _flavorConfig;
@@ -26,15 +26,6 @@ class FlavorConfig {
           flavorColor);
     }
   }
-
-//  static void setupQat() {
-//    if (_flavorConfig == null) {
-//      _flavorConfig = FlavorConfig._internalConstructor(
-//        backendUrl: 'github.com',
-//        flavorColor: Colors.amber,
-//      );
-//    }
-//  }
 }
 
 class FlavorValues {
