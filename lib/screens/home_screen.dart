@@ -1,47 +1,42 @@
+import 'package:flavorful_flutter/configurations/flavor_config.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final FlavorValues flavorValues = FlavorConfig.getValues();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'App Build Flavor',
             ),
             Text(
-              '$_counter',
+              flavorValues.flavor.toString(),
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Text(
+              'Backend Url',
+            ),
+            Text(
+              flavorValues.backendUrl,
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
