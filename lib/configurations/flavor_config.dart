@@ -21,8 +21,6 @@ class FlavorConfig {
       @required MaterialColor flavorColor}) {
     if (_flavorConfig == null) {
       _flavorConfig = FlavorConfig._internalConstructor(
-//        backendUrl: 'github.com',
-//        flavorColor: Colors.cyan,
           flavor,
           backendUrl,
           flavorColor);
